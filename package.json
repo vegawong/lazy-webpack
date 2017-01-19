@@ -1,5 +1,5 @@
 {
-  "name": "easy-webpack-plus",
+  "name": "lazy-webpack",
   "version": "1.0.0",
   "description": "easy to setup for webpack",
   "main": "index.js",
