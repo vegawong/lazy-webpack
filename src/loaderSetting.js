@@ -117,6 +117,7 @@ module.exports = function (opts) {
     },
     {
       pkg: 'url-loader',
+      depedependencies: ['file-loader'],
       config: {
         test: /\.(png|jpg|jpeg|gif)(\?\S*)?$/,
         loader: `url-loader?limit=${opts.urlLoaderLimit}`
@@ -124,6 +125,7 @@ module.exports = function (opts) {
     },
     {
       pkg: 'url-loader',
+      depedependencies: ['file-loader'],
       config: {
         test: /\.otf(\?\S*)?$/,
         loader: `url-loader?limit=${opts.urlLoaderLimit}`
@@ -131,6 +133,7 @@ module.exports = function (opts) {
     },
     {
       pkg: 'url-loader',
+      depedependencies: ['file-loader'],
       config: {
         test: /\.eot(\?\S*)?$/,
         loader: `url-loader?limit=${opts.urlLoaderLimit}`
@@ -138,6 +141,7 @@ module.exports = function (opts) {
     },
     {
       pkg: 'url-loader',
+      depedependencies: ['file-loader'],
       config: {
         test: /\.svg(\?\S*)?$/,
         loader: `url-loader?mimetype=image/svg+xml&limit=${opts.urlLoaderLimit}`
@@ -145,6 +149,7 @@ module.exports = function (opts) {
     },
     {
       pkg: 'url-loader',
+      depedependencies: ['file-loader'],
       config: {
         test: /\.ttf(\?\S*)?$/,
         loader: `url-loader?mimetype=application/octet-stream&limit=${opts.urlLoaderLimit}`
@@ -152,6 +157,7 @@ module.exports = function (opts) {
     },
     {
       pkg: 'url-loader',
+      depedependencies: ['file-loader'],
       config: {
         test: /\.woff2?(\?\S*)?$/,
         loader: `url-loader?mimetype=application/font-woff&limit=${opts.urlLoaderLimit}`
