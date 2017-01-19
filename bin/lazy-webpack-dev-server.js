@@ -98,6 +98,9 @@ const wdsOptions = {
 
 // no-dashboard
 if (serverConfig.dashboard) {
+  const dashboard = new Dashboard();
+  compiler.apply(new DashboardPlugin(dashboard.setData));
+} else {
   // wdsOptions.quiet = false;
   // wdsOptions.noInfo = true;
   wdsOptions.reporter = function (reporterOptions) {
@@ -116,9 +119,6 @@ if (serverConfig.dashboard) {
   compiler.plugin('compile', () => {
     console.log(colors.yellow('webpack building...'));
   });
-} else {
-  const dashboard = new Dashboard();
-  compiler.apply(new DashboardPlugin(dashboard.setData));
 }
 
 const port = serverConfig.port || 3000;
