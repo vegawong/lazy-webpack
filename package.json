@@ -1,25 +1,25 @@
 {
   "name": "lazy-webpack",
   "version": "0.0.1",
-  "description": "easy to setup for webpack",
+  "description": "easy to setup webpack or dev-server",
   "main": "index.js",
   "bin": {
-    "ewp-dev-server": "bin/ewp-dev-server.js"
+    "lazy-webpack-dev-server": "bin/lazy-webpack-dev-server.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vega-wong/easy-webpack-plus.git"
+    "url": "git+https://github.com/vega-wong/lazy-webpack.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vega-wong/easy-webpack-plus/issues"
+    "url": "https://github.com/vega-wong/lazy-webpack/issues"
   },
-  "homepage": "https://github.com/vega-wong/easy-webpack-plus#readme",
+  "homepage": "https://github.com/vega-wong/lazy-webpack#readme",
   "dependencies": {
     "colors": "^1.1.2",
     "contains-path": "^0.1.0",
