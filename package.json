@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/vega-wong/lazy-webpack#readme",
   "dependencies": {
+    "autoprefixer": "^6.6.1",
     "colors": "^1.1.2",
     "contains-path": "^0.1.0",
     "extract-text-webpack-plugin": "^1.0.1",

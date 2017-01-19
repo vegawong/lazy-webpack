@@ -47,7 +47,7 @@ module.exports = function (opts) {
     plugins: [],
 
       // optional
-    postCss: opts.postCss || [],
+    postcss: opts.postcss || [],
     vue: {}
   };
 
