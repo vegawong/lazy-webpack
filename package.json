@@ -1,6 +1,6 @@
 {
   "name": "lazy-webpack",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "easy to setup webpack or dev-server",
   "main": "index.js",
   "bin": {
