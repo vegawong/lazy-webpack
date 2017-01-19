@@ -17,6 +17,7 @@ const Dashboard = require('webpack-dashboard');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const WDS = require('webpack-dev-server');
 const colors = require('colors');
+const merge = require('webpack-merge');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 
@@ -35,9 +36,51 @@ try {
   process.exit(1);
 }
 
-const config = require(path.join(process.cwd(), configFile));
+let config = require(path.join(process.cwd(), configFile));
 const serverConfig = config.devServer;
 const https = serverConfig.https || false;
+
+const port = serverConfig.port || 3000;
+const hostname = serverConfig.hostname || 'localhost';
+const protocol = https ? 'https' : 'http';
+
+
+console.log(config.plugins);
+// hot-replace
+if (typeof config.entry === 'string') {
+  config.entry = [`${path.join(path.dirname(require.resolve('webpack-dev-server')), '..')}/client?${protocol}://${hostname}:${port}`,
+    `${path.dirname(require.resolve('build-html-webpack-plugin'))}/client?${protocol}://${hostname}:${port}`,
+    `${path.join(path.dirname(require.resolve('webpack')), '..')}/hot/dev-server`, config.entry];
+} else {
+  Object.keys(config.entry).forEach(v => {
+    if (typeof config.entry[v] === 'string') {
+      config.entry[v] = [`${path.join(path.dirname(require.resolve('webpack-dev-server')), '..')}/client?${protocol}://${hostname}:${port}`,
+        `${path.dirname(require.resolve('build-html-webpack-plugin'))}/client?${protocol}://${hostname}:${port}`,
+        `${path.join(path.dirname(require.resolve('webpack')), '..')}/hot/dev-server`, config.entry[v]];
+    } else {
+      config.entry[v] = [`${path.join(path.dirname(require.resolve('webpack-dev-server')), '..')}/client?${protocol}://${hostname}:${port}`,
+        `${path.dirname(require.resolve('build-html-webpack-plugin'))}/client?${protocol}://${hostname}:${port}`,
+        `${path.join(path.dirname(require.resolve('webpack')), '..')}/hot/dev-server`, ...config.entry[v]];
+    }
+  });
+}
+
+
+console.log(config.entry);
+
+config = merge({
+  customizeArray: merge.unique(
+    'plugins',
+    ['HotModuleReplacementPlugin'],
+    plugin => plugin.constructor && plugin.constructor.name
+  )
+})(config, {
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
+});
+
+console.log(config.plugins);
 
 const compiler = webpack(config);
 
@@ -96,23 +139,20 @@ const wdsOptions = {
   https
 };
 
-// hot-replace
-compiler.apply(new webpack.HotModuleReplacementPlugin());
-
 
 // no-dashboard
 if (serverConfig.dashboard) {
   const dashboard = new Dashboard();
   compiler.apply(new DashboardPlugin(dashboard.setData));
 } else {
-  // wdsOptions.quiet = false;
-  // wdsOptions.noInfo = true;
+  // wdsOptions.quiet = true;
+  // wdsOptions.noInfo = false;
   wdsOptions.reporter = function (reporterOptions) {
     const state = reporterOptions.state;
     const stats = reporterOptions.stats;
     const options = reporterOptions.options;
     if (state) {
-      if (stats.hasErrors() || stats.hasWarnings()) {
+      if (stats.hasErrors() || stats.hasWarnings() || serverConfig.verbose) {
         options.log(stats.toString(options.stats));
       }
       options.log(colors.yellow(`webpack: bundle is now VALID.  + ${stats.endTime - stats.startTime}ms`));
@@ -125,9 +165,6 @@ if (serverConfig.dashboard) {
   });
 }
 
-const port = serverConfig.port || 3000;
-const hostname = serverConfig.hostname || 'localhost';
-const protocol = https ? 'https' : 'http';
 
 // auto-open
 if (serverConfig.autoOpen) {

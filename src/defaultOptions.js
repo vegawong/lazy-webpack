@@ -16,7 +16,13 @@ module.exports = {
   urlLoaderLimit: 10000,
   clearBeforeBuild: false,
   // serveCustomHtmlInDev: true,
-  devServer: {},
+  devServer: {
+    port: 3000,
+    hostname: 'localhost',
+    verbose: false,   // show more build stats
+    dashboard: false,  // show build dashboare
+    autoOpen: false  // auto open browser after build success
+  },
   uglify: {
     compress: {
       warnings: false
@@ -29,7 +35,7 @@ module.exports = {
   postcss: [
     rucksack(),
     autoprefixer({
-        browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
-      }),
+      browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
+    }),
   ]
 };
