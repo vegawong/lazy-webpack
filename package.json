@@ -7,7 +7,7 @@
     "lazy-webpack-dev-server": "bin/lazy-webpack-dev-server.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test --recursive --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,11 @@
     "yargs": "^6.6.0"
   },
   "devDependencies": {
+    "babel-loader": "^6.2.10",
+    "babel-register": "^6.18.0",
     "eslint": "^3.13.1",
-    "eslint-config-yidejia": "^1.1.4"
+    "eslint-config-yidejia": "^1.1.4",
+    "mocha": "^3.2.0",
+    "should": "^11.1.2"
   }
 }

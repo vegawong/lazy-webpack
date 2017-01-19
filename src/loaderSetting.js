@@ -20,6 +20,7 @@ module.exports = function (opts) {
   const styleLoaders = [
     {
       pkg: 'stylus-loader',
+      depedependencies: ['style-loader', 'css-loader', 'postcss-loader'],
       config: {
         dev: {
           test: /\.styl$/,
@@ -33,6 +34,7 @@ module.exports = function (opts) {
     },
     {
       pkg: 'less-loader',
+      depedependencies: ['style-loader', 'css-loader', 'postcss-loader', 'less'],
       config: {
         dev: {
           test: /\.less$/,
@@ -46,6 +48,7 @@ module.exports = function (opts) {
     },
     {
       pkg: 'sass-loader',
+      depedependencies: ['style-loader', 'css-loader', 'postcss-loader', 'node-sass'],
       config: {
         dev: {
           test: /\.scss$/,
@@ -59,6 +62,7 @@ module.exports = function (opts) {
     },
     {
       pkg: 'sass-loader',
+      depedependencies: ['style-loader', 'css-loader', 'postcss-loader', 'node-sass'],
       config: {
         dev: {
           test: /\.sass$/,
@@ -76,6 +80,7 @@ module.exports = function (opts) {
   const optionalLoaders = [
     {
       pkg: 'babel-loader',
+      depedependencies: ['babel-core', 'babel-preset-env'],
       config: {
         test: /\.(jsx?|es6)$/,
         loader: 'babel-loader',
@@ -90,6 +95,7 @@ module.exports = function (opts) {
     },
     {
       pkg: 'coffee-loader',
+      depedependencies: ['coffee-script'],
       config: {
         test: /\.coffee$/,
         loader: 'coffee-loader'
@@ -181,6 +187,14 @@ module.exports = function (opts) {
   styleLoaders.forEach(item => {
     if (isInstalled(item.pkg)) {
       if (allBaseLoadersInstalled) {
+        if (item.depedependencies) {
+          item.depedependencies.forEach(function (dep) {
+            if (!isInstalled(dep)) {
+              throw new Error(`The loader ${item.pkg} needs the following module to be installed: ${dep}`);
+              return;
+            }
+          });
+        }
         installedLoaders.push(opts.isDev ? item.config.dev : item.config.production);
       } else {
         throw new Error(`The loader ${item.pkg} needs the following loaders to be installed: ${baseStyleLoaders.join(', ')}`);
@@ -189,10 +203,15 @@ module.exports = function (opts) {
   });
 
   optionalLoaders.forEach(item => {
-    if (item.pkg === 'babel-loader') {
-      console.log(isInstalled(item.pkg));
-    }
     if (isInstalled(item.pkg)) {
+      if (item.depedependencies) {
+        item.depedependencies.forEach(function (dep) {
+          if (!isInstalled(dep)) {
+            throw new Error(`The loader ${item.pkg} needs the following module to be installed: ${dep}`);
+            return;
+          }
+        });
+      }
       installedLoaders.push(item.config);
     }
   });
