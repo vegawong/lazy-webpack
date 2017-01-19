@@ -45,7 +45,7 @@ const hostname = serverConfig.hostname || 'localhost';
 const protocol = https ? 'https' : 'http';
 
 
-console.log(config.plugins);
+// console.log(config.plugins);
 // hot-replace
 if (typeof config.entry === 'string') {
   config.entry = [`${path.join(path.dirname(require.resolve('webpack-dev-server')), '..')}/client?${protocol}://${hostname}:${port}`,
