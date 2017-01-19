@@ -96,6 +96,10 @@ const wdsOptions = {
   https
 };
 
+// hot-replace
+compiler.apply(new webpack.HotModuleReplacementPlugin());
+
+
 // no-dashboard
 if (serverConfig.dashboard) {
   const dashboard = new Dashboard();
