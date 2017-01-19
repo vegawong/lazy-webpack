@@ -87,9 +87,9 @@ module.exports = function (opts) {
         exclude: /node_modules/,
         query: {
           cacheDirectory: os.tmpdir(),
-          presets: ['env', {
+          presets: [['env', {
             browsers: supportBrowserList
-          }]
+          }]]
         }
       }
     },
