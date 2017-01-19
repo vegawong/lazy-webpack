@@ -66,7 +66,7 @@ if (typeof config.entry === 'string') {
 }
 
 
-console.log(config.entry);
+// console.log(config.entry);
 
 config = merge({
   customizeArray: merge.unique(
@@ -80,7 +80,7 @@ config = merge({
   ]
 });
 
-console.log(config.plugins);
+// console.log(config.plugins);
 
 const compiler = webpack(config);
 
