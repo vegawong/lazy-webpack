@@ -1,0 +1,40 @@
+{
+  "name": "easy-webpack-plus",
+  "version": "1.0.0",
+  "description": "easy to setup for webpack",
+  "main": "index.js",
+  "bin": {
+    "ewp-dev-server": "bin/ewp-dev-server.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vega-wong/easy-webpack-plus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vega-wong/easy-webpack-plus/issues"
+  },
+  "homepage": "https://github.com/vega-wong/easy-webpack-plus#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "contains-path": "^0.1.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "find-root": "^1.0.0",
+    "open-browser-webpack-plugin": "^0.0.3",
+    "rimraf": "^2.5.4",
+    "rucksack-css": "^0.9.1",
+    "webpack": "^1.14.0",
+    "webpack-dashboard": "^0.2.1",
+    "webpack-dev-server": "^1.16.2",
+    "yargs": "^6.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.13.1",
+    "eslint-config-yidejia": "^1.1.4"
+  }
+}
