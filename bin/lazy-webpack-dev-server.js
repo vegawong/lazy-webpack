@@ -72,10 +72,7 @@ config = merge({
   customizeArray: merge.unique(
     'plugins',
     ['HotModuleReplacementPlugin'],
-    plugin => {
-      console.log(plugin);
-      return plugin.constructor && plugin.constructor.name;
-    }
+    plugin => plugin.constructor && plugin.constructor.name
   )
 })({
   plugins: [
