@@ -66,21 +66,24 @@ if (typeof config.entry === 'string') {
   });
 }
 
-debug('entry')(config.entry);
-
-// console.log(config.entry);
+debug('lwds-entry')(config.entry);
 
 config = merge({
   customizeArray: merge.unique(
     'plugins',
     ['HotModuleReplacementPlugin'],
-    plugin => plugin.constructor && plugin.constructor.name
+    plugin => {
+      console.log(plugin);
+      return plugin.constructor && plugin.constructor.name;
+    }
   )
-})(config, {
+})({
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
-});
+}, config);
+
+debug('lwds-plugins')(config.plugins);
 
 // console.log(config.plugins);
 
