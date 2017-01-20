@@ -19,6 +19,7 @@ const WDS = require('webpack-dev-server');
 const colors = require('colors');
 const merge = require('webpack-merge');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const debug = require('debug');
 
 
 // const httpProxyMiddleware = require('http-proxy-middleware');
@@ -65,6 +66,7 @@ if (typeof config.entry === 'string') {
   });
 }
 
+debug('entry')(config.entry);
 
 // console.log(config.entry);
 

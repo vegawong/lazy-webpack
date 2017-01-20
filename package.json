@@ -25,6 +25,7 @@
     "build-html-webpack-plugin": "^0.1.2",
     "colors": "^1.1.2",
     "contains-path": "^0.1.0",
+    "debug": "^2.6.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "find-root": "^1.0.0",
     "open-browser-webpack-plugin": "^0.0.3",
