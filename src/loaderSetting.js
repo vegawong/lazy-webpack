@@ -174,7 +174,7 @@ module.exports = function (opts) {
       pkg: 'json-loader',
       config: {
         test: /\.json$/,
-        loaders: ['json']
+        loaders: ['json-loader']
       }
     },
   ];
@@ -194,7 +194,7 @@ module.exports = function (opts) {
     if (isInstalled(item.pkg)) {
       if (allBaseLoadersInstalled) {
         if (item.depedependencies) {
-          item.depedependencies.forEach(function (dep) {
+          item.depedependencies.forEach((dep) => {
             if (!isInstalled(dep)) {
               throw new Error(`The loader ${item.pkg} needs the following module to be installed: ${dep}`);
               return;
@@ -211,7 +211,7 @@ module.exports = function (opts) {
   optionalLoaders.forEach(item => {
     if (isInstalled(item.pkg)) {
       if (item.depedependencies) {
-        item.depedependencies.forEach(function (dep) {
+        item.depedependencies.forEach((dep) => {
           if (!isInstalled(dep)) {
             throw new Error(`The loader ${item.pkg} needs the following module to be installed: ${dep}`);
             return;
