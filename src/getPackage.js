@@ -20,7 +20,7 @@ module.exports = function (pack) {
     result.name = 'built-by-easy-webpack-plus';
   }
   return result;
-}
+};
 
 function getPackage(pack) {
   if (typeof pack === 'string') {
@@ -33,7 +33,7 @@ function getPackage(pack) {
         return JSON.parse(fs.readFileSync(path.resolve(pack), 'utf-8'));
       } catch (e) { }
     }
-  } else if (pack === null) {
+  } else if (!pack) {
     // try to read it
     try {
       return JSON.parse(fs.readFileSync(path.join(rootFolder, 'package.json'), 'utf-8'));

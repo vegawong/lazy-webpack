@@ -1,0 +1,19 @@
+{
+  "name": "lazy-webpack-preset-icon",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "lazy-webpack": "2.x"
+  },
+  "dependencies": {
+    "file-loader": "^0.10.0",
+    "url-loader": "^0.5.7"
+  }
+}

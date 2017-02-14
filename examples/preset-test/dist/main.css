@@ -1,0 +1,9 @@
+.aa {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
