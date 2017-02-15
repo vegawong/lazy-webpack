@@ -1,9 +1,15 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const loaderResolve = loader => {
+  if (process.env.lazy_webpack_debug) {
+    return require.resolve(loader);
+  }
+  return loader;
+};
 
 const getPostCssLoader = function (plugins) {
   return {
-    loader: 'postcss-loader',
+    loader: loaderResolve('postcss-loader'),
     options: {
       plugins() {
         return plugins || [];
@@ -20,10 +26,10 @@ module.exports = function (opt = {}) {
       module: {
         rules: [{
           test: /\.scss$/,
-          use: ['style-loader', 'css-loader', postcssLoader, 'sass-loader']
+          use: [loaderResolve('style-loader'), loaderResolve('css-loader'), postcssLoader, loaderResolve('sass-loader')]
         }, {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader', postcssLoader]
+          use: [loaderResolve('style-loader'), loaderResolve('css-loader'), postcssLoader]
         }]
       }
 
@@ -34,14 +40,14 @@ module.exports = function (opt = {}) {
       rules: [{
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', postcssLoader, 'sass-loader']
+          fallback: loaderResolve('style-loader'),
+          use: [loaderResolve('css-loader'), postcssLoader, loaderResolve('sass-loader')]
         })
       }, {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', postcssLoader]
+          fallback: loaderResolve('style-loader'),
+          use: [loaderResolve('css-loader'), postcssLoader]
         })
       }]
     },
