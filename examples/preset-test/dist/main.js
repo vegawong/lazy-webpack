@@ -63,14 +63,42 @@
 /******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: Error: Couldn't find preset \"es2015\" relative to directory \"/Users/vega/Project/github/lazy-webpack/examples/preset-test/src\"\n    at /Users/vega/Project/github/lazy-webpack/node_modules/babel-core/lib/transformation/file/options/option-manager.js:299:19\n    at Array.map (native)\n    at OptionManager.resolvePresets (/Users/vega/Project/github/lazy-webpack/node_modules/babel-core/lib/transformation/file/options/option-manager.js:270:20)\n    at OptionManager.mergePresets (/Users/vega/Project/github/lazy-webpack/node_modules/babel-core/lib/transformation/file/options/option-manager.js:259:10)\n    at OptionManager.mergeOptions (/Users/vega/Project/github/lazy-webpack/node_modules/babel-core/lib/transformation/file/options/option-manager.js:244:14)\n    at OptionManager.init (/Users/vega/Project/github/lazy-webpack/node_modules/babel-core/lib/transformation/file/options/option-manager.js:374:12)\n    at File.initOptions (/Users/vega/Project/github/lazy-webpack/node_modules/babel-core/lib/transformation/file/index.js:216:65)\n    at new File (/Users/vega/Project/github/lazy-webpack/node_modules/babel-core/lib/transformation/file/index.js:139:24)\n    at Pipeline.transform (/Users/vega/Project/github/lazy-webpack/node_modules/babel-core/lib/transformation/pipeline.js:46:16)\n    at transpile (/Users/vega/Project/github/lazy-webpack/node_modules/babel-loader/lib/index.js:38:20)\n    at /Users/vega/Project/github/lazy-webpack/node_modules/babel-loader/lib/fs-cache.js:78:18\n    at ReadFileContext.callback (/Users/vega/Project/github/lazy-webpack/node_modules/babel-loader/lib/fs-cache.js:14:14)\n    at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:365:13)");
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_css__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_scss__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_scss__);
+throw new Error("Cannot find module \"../imgs/bg_begin.png\"");
+throw new Error("Cannot find module \"../imgs/btn_begin.png\"");
+throw new Error("Cannot find module \"../imgs/m_entry_head.png\"");
+throw new Error("Cannot find module \"../imgs/Oval.png\"");
+
+
+
+
+
+
+
 
 /***/ })
 /******/ ]);

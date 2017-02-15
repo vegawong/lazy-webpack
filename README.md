@@ -13,11 +13,7 @@ let config = getConfig({
     path: 'dist',
     publicPath: 'http://localhost:3000/dist/'
   },
-  isDev: true,
-  devtool: 'source-map',
-  devServer: {
-    // autoOpen: true
-  }
+  presets: ['babel', 'sass']
 });
 module.exports = config;
 ```

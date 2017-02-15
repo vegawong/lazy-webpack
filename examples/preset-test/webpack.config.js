@@ -19,9 +19,9 @@ const config = getConfig({
         require('autoprefixer')
       ]
     }
-  }]
+  }, 'img']
 });
 
-console.log(util.inspect(config, false, null, true));
+// console.log(util.inspect(config, false, null, true));
 
 module.exports = config;

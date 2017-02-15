@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "lazy_webpack_debug=true webpack"
+    "build": "lazy_webpack_debug=true webpack",
+    "preinstall": "node pre-install.js",
+    "postinstall": "node post-install.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lazy-webpack": "latest"
+    "autoprefixer": "^6.7.2",
+    "lazy-webpack": "latest",
+    "webpack": "^2.2.1"
   }
 }

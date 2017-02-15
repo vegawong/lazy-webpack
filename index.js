@@ -7,9 +7,7 @@
 
 /* eslint-disable no-use-before-define,no-prototype-builtins */
 
-const webpack = require('webpack');
 const merge = require('webpack-merge');
-
 
 const getBaseConfig = require('./src/baseConfig');
 const defaultOpts = require('./src/defaultOptions');
@@ -27,7 +25,6 @@ module.exports = function (opts) {
   return config;
 };
 
-exports.webpack = webpack;
 
 function checkRequired(opts) {
   const props = ['out', 'in'];

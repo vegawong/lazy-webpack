@@ -1,5 +1,20 @@
 const os = require('os');
 
+const loaderResolve = loader => {
+  if (process.env.lazy_webpack_debug) {
+    return require.resolve(loader);
+  }
+  return loader;
+};
+
+const babelPresetResolve = preset => {
+  if (process.env.lazy_webpack_debug) {
+    return require.resolve(`babel-preset-${preset}`);
+  }
+  return preset;
+};
+
+
 module.exports = function (opt = {}) {
   return {
     module: {
@@ -7,12 +22,12 @@ module.exports = function (opt = {}) {
         test: /\.(jsx?|es6)$/,
         exclude: /(node_modules|bower_components)/,
         use: [{
-          loader: 'babel-loader',
+          loader: loaderResolve('babel-loader'),
           options: opt.options || opt.query || {
             babelrc: false,
             cacheDirectory: os.tmpdir(),
-            presets: [[
-              'es2015', {
+            presets: opt.presets || [[
+              babelPresetResolve('es2015'), {
                 modules: false
               }
             ]]
