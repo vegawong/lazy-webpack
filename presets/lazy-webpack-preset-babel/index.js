@@ -26,7 +26,7 @@ module.exports = function (opt = {}) {
           options: opt.options || opt.query || {
             babelrc: false,
             cacheDirectory: os.tmpdir(),
-            presets: opt.presets || [[
+            presets: [[
               babelPresetResolve('es2015'), {
                 modules: false
               }
