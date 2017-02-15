@@ -1,13 +1,12 @@
 {
   "name": "lazy-webpack",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "easy to setup webpack or dev-server",
   "main": "index.js",
   "bin": {
     "webpack": "node_modules/webpack/bin/webpack.js"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vega-wong/lazy-webpack.git"
