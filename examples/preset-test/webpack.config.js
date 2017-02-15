@@ -19,7 +19,7 @@ const config = getConfig({
         require('autoprefixer')
       ]
     }
-  }, 'img']
+  }, 'img', 'icon']
 });
 
 // console.log(util.inspect(config, false, null, true));

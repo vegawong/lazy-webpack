@@ -8,7 +8,7 @@ module.exports = function (opt = {}) {
       rules: [{
         test: /\.(png|jpg|jpeg|gif)(\?.*)?$/i,
         use: [{
-          loader: resolver.resolveLoader('url-loader'),
+          loader: resolver.resolveLoader('url-loader', __dirname),
           options: {
             limit
           }
