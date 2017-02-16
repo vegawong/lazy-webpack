@@ -13,7 +13,7 @@ let config = getConfig({
     path: 'dist',
     publicPath: 'http://localhost:3000/dist/'
   },
-  presets: ['babel', 'sass']
+  presets: ['babel', 'sass']  // can be string(preset-name) or object
 });
 module.exports = config;
 ```

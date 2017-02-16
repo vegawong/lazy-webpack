@@ -8,8 +8,8 @@
     "type": "git",
     "url": "git+https://github.com/vega-wong/lazy-webpack.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["webpack", "lazy"],
+  "author": "vegawong",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vega-wong/lazy-webpack/issues"
