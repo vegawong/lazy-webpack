@@ -52,7 +52,7 @@ module.exports = function (opt = {}) {
       }]
     },
     plugins: [
-      new ExtractTextPlugin('[name].css')
+      new ExtractTextPlugin(opt.hash ? '[name]-[contenthash].css' : '[name].css')
     ]
   };
 };
